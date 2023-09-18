@@ -5,15 +5,15 @@ export default function Item({data}){
     const description = data.properties.description.rich_text[0].plain_text;
     const imagesrc = data.cover.external.url;
 
-    console.log(data.cover.external)
+    //console.log(data.cover.external)
     return(
         <div className="project-card">
             <Image
                 className='rounded-t-lg'
                 src={imagesrc}
                 alt='cover'
-                width='300'
-                height='80'
+                width='200'
+                height='60'
                 layout='responsive'
                 objectFit='none'
                 quality={100}

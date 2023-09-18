@@ -4,7 +4,7 @@ import Item from './item';
 export default async function Project() {
     const projectData = await fetchProjectData();
     return (
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-8 sm:w-full'>
+      <div className='grid grid-cols-2 md:grid-cols-4 gap-8 sm:w-full'>
         {
           projectData.results.map((data)=>  
               <Item key={data.id} data={data}></Item>
@@ -30,6 +30,6 @@ export default async function Project() {
   
     const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, options);
     const projects = await res.json();
-  
+   
     return projects;
   }

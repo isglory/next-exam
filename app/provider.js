@@ -4,7 +4,7 @@ export function Providers({ children }) {
   return( 
     <ThemeProvider 
         nableSystem={false}
-        attribute="class"
+        attribute="className"
     >
     {children}
     </ThemeProvider>
