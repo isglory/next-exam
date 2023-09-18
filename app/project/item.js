@@ -20,7 +20,6 @@ export default function Item({data}){
             />
             <div className='p-4 flex flexx-col'>
                 <h1>{name}</h1>
-                <h2>{description}</h2>
             </div>
         </div>
     )
