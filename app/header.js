@@ -15,7 +15,7 @@ export default function Header(){
                 <nav className="font-semibold md:ml-auto md:mr-right flex flex-wrap items-center text-base justify-center">
                     <Link href="/" className="mr-5 hover:text-red-300">홈</Link>
                     <Link href="/project" className="mr-5 hover:text-red-300">프로젝트</Link>
-                    <Link href="/project" className="mr-5 hover:text-red-300">로그인</Link>
+                    <Link href="/login" className="mr-5 hover:text-red-300">로그인</Link>
                 </nav>
                 <ModeColor/>
             </div>
