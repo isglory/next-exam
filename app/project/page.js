@@ -6,9 +6,11 @@ export default async function Project() {
     return (
       <div className='grid grid-cols-2 md:grid-cols-4 gap-8 sm:w-full'>
         {
+          projectData.results?   
           projectData.results.map((data)=>  
               <Item key={data.id} data={data}></Item>
             )
+          : ''  
         } 
       </div>
     )
