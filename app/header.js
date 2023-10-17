@@ -16,6 +16,7 @@ export default function Header(){
                     <Link href="/" className="text-gray-600 mr-5 hover:text-red-300">홈</Link>
                     <Link href="/project" className="text-gray-600 mr-5 hover:text-red-300">프로젝트</Link>
                     <Link href="/login" className="text-gray-600 mr-5 hover:text-red-300">로그인</Link>
+                    <Link href="/contactus" className="text-gray-600 mr-5 hover:text-red-300">ContactUs</Link>
                 </nav>
                 <ModeColor/>
             </div>
