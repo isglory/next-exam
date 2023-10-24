@@ -1,5 +1,5 @@
 'use client';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 const config = { 
     iceServers: [
@@ -10,14 +10,19 @@ const config = {
 };
 
 export default function Draw(){
-    
     const localRef = useRef();
     const remoteRef = useRef();
+    // 사각형 그리기 state
+    const [rect, setRect] = useState({
+      x: 0, y: 0, width: 0, height: 0  
+    });
 
     useEffect(() => {
-    const pc = new RTCPeerConnection(config);
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');    
+      const pc = new RTCPeerConnection(config);
 
-    // 카메라 스트림 가져오기
+      // 카메라 스트림 가져오기
     navigator.mediaDevices.getUserMedia({video: true, audio: true})
       .then(stream => {
         localRef.current.srcObject = stream;
@@ -38,11 +43,26 @@ export default function Draw(){
     // ICE 후보 수집
     pc.onicecandidate = () => { /* 생략 */ };
 
-  }, []);
+    // 사각형 그리기
+    ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
+
+  }, [rect]);
 
   return (
-    <div>
-      <video ref={localRef} autoPlay />
+    <div style={{position: 'absolute'}}>
+      <video ref={localRef} autoPlay /> 
+      <canvas 
+        id="canvas"
+        width="200"
+        height="200"
+        style={{
+          position: 'absolute',
+          top: '50%', 
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          border: '3px solid white'
+        }}
+      />
       <video ref={remoteRef} autoPlay />
     </div>
   );
