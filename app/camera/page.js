@@ -27,7 +27,7 @@ export default function Draw(){
       );
 
 
-      // 카메라 스트림 가져오기
+    // 카메라 스트림 가져오기
     navigator.mediaDevices.getUserMedia({
       video: {
         optional: [{sourceId: backCameraId}]
@@ -69,7 +69,7 @@ export default function Draw(){
           top: '50%', 
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          border: '3px solid white'
+          border: '1px solid white'
         }}
       />
       <video ref={remoteRef} autoPlay />
