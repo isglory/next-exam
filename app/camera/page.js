@@ -21,9 +21,18 @@ export default function Draw(){
       const canvas = document.getElementById('canvas');
       const ctx = canvas.getContext('2d');    
       const pc = new RTCPeerConnection(config);
+      const backCameraId = navigator.mediaDevices.enumerateDevices()
+        .then(devices => 
+          devices.filter(d => d.kind === 'videoinput' && d.facing === 'environment').deviceId
+      );
+
 
       // 카메라 스트림 가져오기
-    navigator.mediaDevices.getUserMedia({video: true, audio: true})
+    navigator.mediaDevices.getUserMedia({
+      video: {
+        optional: [{sourceId: backCameraId}]
+      }
+      })
       .then(stream => {
         localRef.current.srcObject = stream;
         pc.addStream(stream);
